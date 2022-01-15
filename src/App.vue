@@ -1,16 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <search-bar
+  @sent="submit"
+  ></search-bar>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import SearchBar from './components/SearchBar.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    SearchBar
+  },
+  
+  data() {
+    return  {
+      accessKey: 'qn72mmKiEZ6vI4hvj4aeHsXcyrPzqhkmAg9P_UtyV04',
+      url: 'https://api.unsplash.com/photos/random',
+      photos: '',
+      keyword: 'erer'
+    }
+  },
+  methods: {
+    submit(val) {
+      this.keyword = val;
+    }
+  },
+
 }
 </script>
 
